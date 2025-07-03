@@ -1,0 +1,32 @@
+{
+  "name": "sieucanhcut_s_application",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "vite preview",
+    "format": "prettier --write \"src/**/*.{js,jsx,css,md,json}\""
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "prop-types": "^15.8.1",
+    "react-router-dom": "6.0.2",
+    "@dhiwise/component-tagger": "^1.0.9",
+    "@tailwindcss/typography": "^0.5.16"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "@vitejs/plugin-react": "4.3.4",
+    "autoprefixer": "10.4.2",
+    "globals": "^15.15.0",
+    "postcss": "8.4.8",
+    "prettier": "^3.5.3",
+    "tailwindcss": "3.4.6",
+    "vite": "5.0.0"
+  }
+}

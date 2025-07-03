@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Global Colors */
+    --global-bg-1: #247ad6b7;
+    --global-bg-2: #f5f7f9;
+    --global-bg-3: #ffffff;
+    --global-bg-4: #db457f;
+    --global-bg-5: #4fc5c2;
+    --global-bg-6: #ffffff33;
+    --global-bg-7: #d9d9d9;
+    --global-text-1: #000000;
+    --global-text-2: #18191f;
+    --global-text-3: #247ad6;
+    --global-text-4: #4d4d4d;
+    --global-text-5: #4fc5c2;
+    --global-text-6: #717171;
+    --global-text-7: #db457f;
+    --global-text-8: #ffffff;
+    --global-text-9: #232323;
+    --global-text-10: #357aff;
+    --global-text-11: #6c6c6c;
+    --global-text-12: #6d6d6d;
+    --global-text-13: #959595;
+    --global-text-14: #9a9a9a;
+
+    /* SearchView Colors */
+    --searchview-bg-1: #ffffff33;
+    --searchview-text-1: #a5a5a5;
+
+    /* Button Colors */
+    --button-bg-1: #247ad6;
+    --button-bg-2: #4fc5c2;
+    --button-bg-3: #db457f;
+    --button-bg-4: #357aff;
+    --button-text-1: #ffffff;
+
+    /* Slider Colors */
+    --slider-text-1: #2478d6;
+
+    /* PagerIndicator Colors */
+    --pagerindicator-bg-1: #4fc5c275;
+
+    /* Footer Colors */
+    --footer-bg-1: #263238;
+    --footer-text-1: #f5f7f9;
+
+    /* EditText Colors */
+    --edittext-text-1: #d9dbe1;
+
+    /* CheckBox Colors */
+    --checkbox-text-1: #232323;
+  }
+}
+
+@layer utilities {
+  /* Global */
+  .bg-global-1 {
+    background-color: var(--global-bg-1);
+  }
+  .bg-global-2 {
+    background-color: var(--global-bg-2);
+  }
+  .bg-global-3 {
+    background-color: var(--global-bg-3);
+  }
+  .bg-global-4 {
+    background-color: var(--global-bg-4);
+  }
+  .bg-global-5 {
+    background-color: var(--global-bg-5);
+  }
+  .bg-global-6 {
+    background-color: var(--global-bg-6);
+  }
+  .bg-global-7 {
+    background-color: var(--global-bg-7);
+  }
+  .text-global-1 {
+    color: var(--global-text-1);
+  }
+  .text-global-2 {
+    color: var(--global-text-2);
+  }
+  .text-global-3 {
+    color: var(--global-text-3);
+  }
+  .text-global-4 {
+    color: var(--global-text-4);
+  }
+  .text-global-5 {
+    color: var(--global-text-5);
+  }
+  .text-global-6 {
+    color: var(--global-text-6);
+  }
+  .text-global-7 {
+    color: var(--global-text-7);
+  }
+  .text-global-8 {
+    color: var(--global-text-8);
+  }
+  .text-global-9 {
+    color: var(--global-text-9);
+  }
+  .text-global-10 {
+    color: var(--global-text-10);
+  }
+  .text-global-11 {
+    color: var(--global-text-11);
+  }
+  .text-global-12 {
+    color: var(--global-text-12);
+  }
+  .text-global-13 {
+    color: var(--global-text-13);
+  }
+  .text-global-14 {
+    color: var(--global-text-14);
+  }
+
+  /* SearchView */
+  .bg-searchview-1 {
+    background-color: var(--searchview-bg-1);
+  }
+  .text-searchview-1 {
+    color: var(--searchview-text-1);
+  }
+
+  /* Button */
+  .bg-button-1 {
+    background-color: var(--button-bg-1);
+  }
+  .bg-button-2 {
+    background-color: var(--button-bg-2);
+  }
+  .bg-button-3 {
+    background-color: var(--button-bg-3);
+  }
+  .bg-button-4 {
+    background-color: var(--button-bg-4);
+  }
+  .text-button-1 {
+    color: var(--button-text-1);
+  }
+
+  /* Slider */
+  .text-slider-1 {
+    color: var(--slider-text-1);
+  }
+
+  /* PagerIndicator */
+  .bg-pagerindicator-1 {
+    background-color: var(--pagerindicator-bg-1);
+  }
+
+  /* Footer */
+  .bg-footer-1 {
+    background-color: var(--footer-bg-1);
+  }
+  .text-footer-1 {
+    color: var(--footer-text-1);
+  }
+
+  /* EditText */
+  .text-edittext-1 {
+    color: var(--edittext-text-1);
+  }
+
+  /* CheckBox */
+  .text-checkbox-1 {
+    color: var(--checkbox-text-1);
+  }
+}
