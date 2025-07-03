@@ -11,6 +11,8 @@ import DaoRegistrationPage from './pages/DaoRegistration';
 import CampaignListPage from './pages/CampaignList';
 import ProfileEditPage from './pages/ProfileEdit';
 import ProfileDashboardPage from './pages/ProfileDashboard';
+import NotificationPage from './pages/Notification';
+import DaoMemberPage from './pages/RegisterDAO';
 
 const AppRoutes = () => {
   return (
@@ -25,6 +27,8 @@ const AppRoutes = () => {
         <Route path="/campaigns" element={<CampaignListPage />} />
         <Route path="/profile/edit" element={<ProfileEditPage />} />
         <Route path="/profile" element={<ProfileDashboardPage />} />
+        <Route path="/notification" element={<NotificationPage />}/>
+        <Route path="/registeradao" element={<DaoMemberPage />}/>
       </Routes>
     </Router>
   );
