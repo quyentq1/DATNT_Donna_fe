@@ -13,6 +13,8 @@ import ProfileEditPage from './pages/ProfileEdit';
 import ProfileDashboardPage from './pages/ProfileDashboard';
 import NotificationPage from './pages/Notification';
 import DaoMemberPage from './pages/RegisterDAO';
+import CampaignDetail from './pages/DonationList';
+import DonationPage from './pages/DonationPage';
 
 const AppRoutes = () => {
   return (
@@ -29,6 +31,9 @@ const AppRoutes = () => {
         <Route path="/profile" element={<ProfileDashboardPage />} />
         <Route path="/notification" element={<NotificationPage />}/>
         <Route path="/registeradao" element={<DaoMemberPage />}/>
+        <Route path="/campaigndetail" element={<CampaignDetail />}/>
+        <Route path="/donationinfor" element={<DonationPage />}/>
+        
       </Routes>
     </Router>
   );
