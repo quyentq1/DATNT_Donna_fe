@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import Button from '../../components/ui/Button';
 import EditText from '../../components/ui/EditText';
@@ -20,33 +19,33 @@ const DaoRegistration = () => {
       children: false,
       environment: false,
       naturalDisaster: false,
-      disability: false
+      disability: false,
     },
     certificateFile: null,
-    commitment: false
+    commitment: false,
   });
 
   const handleInputChange = (field, value) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
   };
 
   const handleInterestChange = (interest, checked) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       areasOfInterest: {
         ...prev.areasOfInterest,
-        [interest]: checked
-      }
+        [interest]: checked,
+      },
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const hasInterest = Object.values(formData.areasOfInterest).some(val => val);
+    const hasInterest = Object.values(formData.areasOfInterest).some((val) => val);
     if (!formData.fullName || !formData.email || !formData.introduction || !formData.experience) {
       alert('Please fill in all required fields.');
       return;
@@ -78,8 +77,6 @@ const DaoRegistration = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-global-3">
-      <Header />
-
       {/* Hero Background */}
       <div
         className="w-full h-[349px] bg-cover bg-center relative"
@@ -107,34 +104,33 @@ const DaoRegistration = () => {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-8">
-{/* Full Name Input */}
-<div>
-  <label className="block text-lg font-bold text-global-1 mb-2">
-    Full name: <span className="text-global-21">*</span>
-  </label>
-  <input
-    type="text"
-    value={formData.fullName}
-    onChange={(e) => handleInputChange('fullName', e.target.value)}
-    placeholder="Enter your full name"
-    className="w-full h-[46px] px-4 border rounded bg-white text-global-1"
-  />
-</div>
+            {/* Full Name Input */}
+            <div>
+              <label className="block text-lg font-bold text-global-1 mb-2">
+                Full name: <span className="text-global-21">*</span>
+              </label>
+              <input
+                type="text"
+                value={formData.fullName}
+                onChange={(e) => handleInputChange('fullName', e.target.value)}
+                placeholder="Enter your full name"
+                className="w-full h-[46px] px-4 border rounded bg-white text-global-1"
+              />
+            </div>
 
-{/* Email Input */}
-<div>
-  <label className="block text-lg font-bold text-global-1 mb-2">
-    Email: <span className="text-global-21">*</span>
-  </label>
-  <input
-    type="email"
-    value={formData.email}
-    onChange={(e) => handleInputChange('email', e.target.value)}
-    placeholder="Enter your email"
-    className="w-full h-[46px] px-4 border rounded bg-white text-global-1"
-  />
-</div>
-
+            {/* Email Input */}
+            <div>
+              <label className="block text-lg font-bold text-global-1 mb-2">
+                Email: <span className="text-global-21">*</span>
+              </label>
+              <input
+                type="email"
+                value={formData.email}
+                onChange={(e) => handleInputChange('email', e.target.value)}
+                placeholder="Enter your email"
+                className="w-full h-[46px] px-4 border rounded bg-white text-global-1"
+              />
+            </div>
 
             {/* Introduction */}
             <div>
@@ -143,7 +139,7 @@ const DaoRegistration = () => {
               </label>
               <EditText
                 value={formData.introduction}
-                onChange={(e) => handleInputChange('introduction', e.target.value)}
+                onChange={(value) => handleInputChange('introduction', value)}
                 placeholder="Why do you want to join the DAO? What do you care about most?..."
                 multiline
                 rows={4}
@@ -157,12 +153,36 @@ const DaoRegistration = () => {
                 Areas of interest: <span className="text-global-21">*</span>
               </label>
               <div className="flex flex-wrap gap-x-6 gap-y-5 mb-2">
-                <CheckBox checked={formData.areasOfInterest.education} onChange={(c) => handleInterestChange('education', c)} label="🎓 Education" />
-                <CheckBox checked={formData.areasOfInterest.medical} onChange={(c) => handleInterestChange('medical', c)} label="⛑️ Medical" />
-                <CheckBox checked={formData.areasOfInterest.children} onChange={(c) => handleInterestChange('children', c)} label="👶 Children" />
-                <CheckBox checked={formData.areasOfInterest.environment} onChange={(c) => handleInterestChange('environment', c)} label="🌿 Environment" />
-                <CheckBox checked={formData.areasOfInterest.naturalDisaster} onChange={(c) => handleInterestChange('naturalDisaster', c)} label="⛈️ Natural disaster" />
-                <CheckBox checked={formData.areasOfInterest.disability} onChange={(c) => handleInterestChange('disability', c)} label="🧑‍🦽 Disability" />
+                <CheckBox
+                  checked={formData.areasOfInterest.education}
+                  onChange={(c) => handleInterestChange('education', c)}
+                  label="🎓 Education"
+                />
+                <CheckBox
+                  checked={formData.areasOfInterest.medical}
+                  onChange={(c) => handleInterestChange('medical', c)}
+                  label="⛑️ Medical"
+                />
+                <CheckBox
+                  checked={formData.areasOfInterest.children}
+                  onChange={(c) => handleInterestChange('children', c)}
+                  label="👶 Children"
+                />
+                <CheckBox
+                  checked={formData.areasOfInterest.environment}
+                  onChange={(c) => handleInterestChange('environment', c)}
+                  label="🌿 Environment"
+                />
+                <CheckBox
+                  checked={formData.areasOfInterest.naturalDisaster}
+                  onChange={(c) => handleInterestChange('naturalDisaster', c)}
+                  label="⛈️ Natural disaster"
+                />
+                <CheckBox
+                  checked={formData.areasOfInterest.disability}
+                  onChange={(c) => handleInterestChange('disability', c)}
+                  label="🧑‍🦽 Disability"
+                />
               </div>
             </div>
 
@@ -173,7 +193,7 @@ const DaoRegistration = () => {
               </label>
               <EditText
                 value={formData.experience}
-                onChange={(e) => handleInputChange('experience', e.target.value)}
+                onChange={(value) => handleInputChange('experience', value)}
                 placeholder="Could be past contributions, DAO community knowledge"
                 multiline
                 rows={4}
@@ -184,7 +204,8 @@ const DaoRegistration = () => {
             {/* Certificate Upload */}
             <div>
               <label className="block text-lg font-bold text-global-1 mb-2">
-                Certificate, activity photos, proof of volunteering: <span className="text-global-21">*</span>
+                Certificate, activity photos, proof of volunteering:{' '}
+                <span className="text-global-21">*</span>
               </label>
               <input
                 type="file"
@@ -206,7 +227,8 @@ const DaoRegistration = () => {
                 className="mt-1"
               />
               <span className="text-base text-global-1 leading-6 flex-1">
-                ✔️ I am committed to DonaTrust's principles of transparency, objectivity, and community service.
+                ✔️ I am committed to DonaTrust's principles of transparency, objectivity, and
+                community service.
               </span>
             </div>
 
@@ -231,9 +253,14 @@ const DaoRegistration = () => {
         <div className="fixed inset-0 bg-global-10 flex items-center justify-center z-50">
           <div className="w-[679px] h-[185px] bg-global-3 border-2 border-global-1 rounded-[10px] flex flex-col items-center justify-center p-8">
             <p className="text-xl font-inter text-global-1 text-center mb-8 max-w-[628px]">
-              Thank you for registering. DonaTrust administrators will review and respond to you via email and notification center.
+              Thank you for registering. DonaTrust administrators will review and respond to you via
+              email and notification center.
             </p>
-            <Button onClick={handleBackToHome} variant="primary" className="w-[235px] h-[43px] bg-button-4 rounded-[5px]">
+            <Button
+              onClick={handleBackToHome}
+              variant="primary"
+              className="w-[235px] h-[43px] bg-button-4 rounded-[5px]"
+            >
               <span className="text-xs font-bold font-inter text-button-1 leading-[15px]">
                 Back to home page
               </span>

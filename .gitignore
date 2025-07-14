@@ -4,6 +4,9 @@ package-lock.json
 
 # Production build
 build/
+git rm --cached .env
+git add .
+git commit -m "Remove .env file with secrets"
 
 # Logs
 npm-debug.log*

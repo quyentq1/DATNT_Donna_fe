@@ -1,79 +1,97 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ProjectCard = ({ project, index }) => {
+const ProjectCard = ({ project }) => {
+  // Màu sắc theo category
   const categoryColors = {
-    'Children': 'bg-global-4',
-    'Environment': 'bg-global-4'
+    'Children': 'bg-global-4', // Xanh nước biển
+    'Environment': 'bg-global-4',
+    'General': 'bg-global-4'
+  };
+
+  // Tính phần trăm tiến độ
+  const progressPercentage =
+    project.current_amount && project.goal_amount
+      ? Math.round((project.current_amount / project.goal_amount) * 100)
+      : project.percentage
+      ? parseFloat(project.percentage)
+      : 0;
+
+  // Format tiền tệ VND
+  const formatCurrency = (amount) => {
+    if (!amount) return '0';
+    return new Intl.NumberFormat('vi-VN').format(amount);
   };
 
   return (
-    <div className="relative w-[240px] h-[340px] bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="relative w-[240px] h-[360px] bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
       {/* Ảnh đại diện dự án */}
-      <div className="relative w-full h-[160px]">
+      <div className="relative w-full h-[150px]">
         <img
-          src={project.image}
+          src={project.image_url || project.image || '/images/img_image_18.png'}
           alt={project.title}
           className="w-full h-full object-cover"
+          onError={(e) => { e.target.src = '/images/img_image_18.png'; }}
         />
 
         {/* Badge thể loại */}
         <div
-          className={`absolute top-2 right-2 ${categoryColors[project.category] || 'bg-global-4'} px-3 py-1 rounded-full`}
+          className={`absolute top-2 right-2 ${categoryColors[project.category] || 'bg-global-4'} px-3 py-1 rounded-full shadow-md`}
         >
           <span className="text-[10px] font-semibold text-white">
-            {project.category}
+            {project.category || 'Khác'}
           </span>
         </div>
       </div>
 
+      {/* Avatar tổ chức */}
+      <img
+        src={project.charity?.logo_url || project.avatar || '/images/img_ellipse_8.png'}
+        alt="Tổ chức"
+        className="absolute top-[130px] left-1/2 transform -translate-x-1/2 w-[44px] h-[44px] rounded-full border-2 border-white shadow bg-white object-cover"
+        onError={(e) => { e.target.src = '/images/img_ellipse_8.png'; }}
+      />
+
       {/* Nội dung card */}
-      <div className="p-4">
+      <div className="pt-8 px-4 pb-4">
         {/* Tên tổ chức */}
-        <h4 className="text-sm font-semibold text-gray-600 text-center mb-2">
-          {project.organization}
+        <h4 className="text-xs font-semibold text-gray-500 text-center mb-1">
+          {project.charity?.name || project.organization || 'Tổ chức ẩn danh'}
         </h4>
 
         {/* Tên dự án */}
-        <h3 className="text-base font-bold text-gray-800 text-center mb-2">
+        <h3 className="text-[15px] font-bold text-gray-800 text-center mb-2 leading-tight line-clamp-2">
           {project.title}
         </h3>
 
         {/* Progress */}
         <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden mb-2">
           <div
-            className="h-full bg-green-500"
-            style={{ width: project.percentage }}
+            className="h-full bg-gradient-to-r from-pink-500 to-red-500 transition-all duration-500"
+            style={{ width: `${Math.min(progressPercentage, 100)}%` }}
           />
         </div>
 
-        {/* Raised / Percent */}
-        <div className="flex justify-between text-xs text-gray-600 mb-2">
-          <span>{project.raised} VND</span>
-          <span>{project.percentage}</span>
+        {/* Đã góp / phần trăm */}
+        <div className="flex justify-between text-[11px] text-gray-600 mb-2">
+          <span>Đã góp: {formatCurrency(project.current_amount || project.raised)} VND</span>
+          <span>{progressPercentage}%</span>
         </div>
 
-        {/* Goal */}
-        <p className="text-xs text-gray-500 mb-3 text-center">
-          with the goal of {project.goal}
+        {/* Mục tiêu */}
+        <p className="text-xs text-gray-500 mb-4 text-center">
+          Mục tiêu: {formatCurrency(project.goal_amount || project.goal)} VND
         </p>
 
-        {/* Nút Detail */}
-        <div className="text-center">
-          <Link to={`/campaign/${project.id}`}>
-            <span className="text-sm font-semibold text-blue-600 hover:underline">
-              Detail →
-            </span>
+        {/* Nút chi tiết */}
+        <div className="flex justify-center">
+          <Link to={`/campaign/${project.campaign_id || project.id}`}>
+            <button className="text-sm font-semibold text-blue-600 hover:underline">
+              Xem chi tiết →
+            </button>
           </Link>
         </div>
       </div>
-
-      {/* Avatar tổ chức */}
-      <img
-        src={project.avatar}
-        alt={`${project.organization} Avatar`}
-        className="absolute top-[140px] left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full border-2 border-white"
-      />
     </div>
   );
 };

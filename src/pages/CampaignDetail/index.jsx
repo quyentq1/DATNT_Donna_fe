@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import Button from '../../components/ui/Button';
 import RatingBar from '../../components/ui/RatingBar';
@@ -42,9 +41,6 @@ const CampaignDetail = () => {
 
   return (
     <div className="min-h-screen bg-global-3 shadow-2xl">
-      {/* Header */}
-      <Header />
-
       {/* Hero Section */}
       <div 
         className="w-full h-[265px] relative bg-cover bg-center flex items-center justify-center"

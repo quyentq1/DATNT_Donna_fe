@@ -18,27 +18,26 @@ const EditText = ({
   const inputType = type === 'password' && showPassword ? 'text' : type;
   const shouldFloat = isFocused || Boolean(value);
 
-const getVariantClasses = () => {
-  switch (variant) {
-    case 'floating':
-      return {
-        container: 'relative w-full',
-        input:
-          'w-full px-3 pt-6 pb-2 border border-button-4 rounded-[10px] text-base font-inter font-medium text-global-1 bg-global-3 focus:outline-none focus:ring-2 focus:ring-button-4',
-        label:
-          'absolute left-3 bg-global-3 px-1 transition-all duration-200 pointer-events-none font-inter font-medium text-button-4 ' +
-          (shouldFloat ? 'top-[-8px] text-xs' : 'top-4 text-base')
-      };
-    default:
-      return {
-        container: 'w-full',
-        label: 'block mb-1 text-sm font-medium font-inter text-global-4',
-        input:
-          'w-full px-3 py-2 border border-global-7 rounded-[10px] text-base font-inter font-medium text-global-1 bg-global-3 focus:outline-none focus:ring-2 focus:ring-button-4 focus:border-button-4'
-      };
-  }
-};
-
+  const getVariantClasses = () => {
+    switch (variant) {
+      case 'floating':
+        return {
+          container: 'relative w-full',
+          input:
+            'w-full px-3 pt-6 pb-2 border border-button-4 rounded-[10px] text-base font-inter font-medium text-global-1 bg-global-3 focus:outline-none focus:ring-2 focus:ring-button-4',
+          label:
+            'absolute left-3 bg-global-3 px-1 transition-all duration-200 pointer-events-none font-inter font-medium text-button-4 ' +
+            (shouldFloat ? 'top-[-8px] text-xs' : 'top-4 text-base'),
+        };
+      default:
+        return {
+          container: 'w-full',
+          label: 'block mb-1 text-sm font-medium font-inter text-global-4',
+          input:
+            'w-full px-3 py-2 border border-global-7 rounded-[10px] text-base font-inter font-medium text-global-1 bg-global-3 focus:outline-none focus:ring-2 focus:ring-button-4 focus:border-button-4',
+        };
+    }
+  };
 
   const classes = getVariantClasses();
 
@@ -49,7 +48,7 @@ const getVariantClasses = () => {
           <input
             type={inputType}
             value={value}
-            onChange={(e) => onChange(e.target.value)} // ✅ Sửa lỗi chính tại đây
+            onChange={onChange}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
             placeholder=""
@@ -64,7 +63,7 @@ const getVariantClasses = () => {
           <input
             type={inputType}
             value={value}
-            onChange={(e) => onChange(e.target.value)} // ✅ Sửa lỗi chính tại đây
+            onChange={onChange}
             placeholder={placeholder}
             className={classes.input}
             {...props}
