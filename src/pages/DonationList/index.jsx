@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
+import { Link } from "react-router-dom";
 
 const donors = [
   { name: "Nguyễn Khánh Nam", amount: "50.000đ", time: "21:30:38 - 07/06/2025" },
@@ -130,9 +131,11 @@ const CampaignDetail = () => {
               </div>
               <div className="flex items-end gap-4 mt-2">
                 <div className="text-2xl text-pink-500 font-bold">9.720.000 VND</div>
+                <Link to="/donationinfor">
                 <button className="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded font-semibold">
                   DONATE NOW
-                </button>
+                  </button>
+                  </Link>
                 <button className="bg-blue-100 text-blue-700 px-4 py-2 rounded font-semibold border border-blue-500">
                   SHARE
                 </button>
@@ -142,9 +145,11 @@ const CampaignDetail = () => {
 
           {/* Tabs */}
           <div className="flex gap-2 mt-8 border-b">
+            <Link to="/campaign/1">
             <button className="px-4 py-2 font-medium text-gray-500 hover:text-blue-700">
               Detailed content
             </button>
+            </Link>
             <button className="px-4 py-2 font-medium text-blue-700 border-b-2 border-blue-700">
               Donation List
             </button>
